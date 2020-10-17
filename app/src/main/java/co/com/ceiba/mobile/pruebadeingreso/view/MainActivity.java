@@ -2,6 +2,8 @@ package co.com.ceiba.mobile.pruebadeingreso.view;
 
 import android.app.Activity;
 import android.os.Bundle;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 
 import java.util.List;
@@ -10,6 +12,7 @@ import co.com.ceiba.mobile.pruebadeingreso.R;
 import co.com.ceiba.mobile.pruebadeingreso.model.Posts;
 import co.com.ceiba.mobile.pruebadeingreso.model.Users;
 import co.com.ceiba.mobile.pruebadeingreso.rest.Api;
+import co.com.ceiba.mobile.pruebadeingreso.view.adapters.users.UsersAdapter;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -18,6 +21,8 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 public class MainActivity extends Activity {
     private Api jsonApi;
+    private RecyclerView recycler;
+    private UsersAdapter usersAdapter;
     private List<Users> users;
     private List<Posts> posts;
 
@@ -26,6 +31,10 @@ public class MainActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        //Init recycler
+        recycler = findViewById(R.id.recyclerViewSearchResults);
+        recycler.setLayoutManager(new LinearLayoutManager(this));
 
         initServices();
 
@@ -60,6 +69,10 @@ public class MainActivity extends Activity {
                 }else {
                     users = response.body();
                     Log.d("CORRECT ", "onResponse: "+ response.code());
+
+                    //Pass Adapter to Recycler
+                    usersAdapter = new UsersAdapter(MainActivity.this, users);
+                    recycler.setAdapter(usersAdapter);
                 }
             }
 
