@@ -18,6 +18,7 @@
         android:layout_marginTop="@dimen/activity_vertical_margin">
 
         <LinearLayout
+            tools:ignore="UseCompoundDrawables"
             android:id="@+id/contentCard"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -32,9 +33,7 @@
                 style="@style/TextAppearance.AppCompat.Title"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Jhon doe"
-                android:textColor="@color/colorPrimary"
-                />
+                android:textColor="@color/colorPrimary" />
 
             <LinearLayout
                 android:id="@+id/contentPhone"
@@ -50,14 +49,14 @@
                     android:layout_marginEnd="5dp"
                     android:layout_marginRight="5dp"
                     android:src="@drawable/ic_local_phone_black_24dp"
-                    android:tint="@color/colorPrimary" />
+                    android:tint="@color/colorPrimary"
+                    android:contentDescription="@string/phone" />
 
                 <TextView
                     android:id="@+id/phone"
                     style="@style/TextAppearance.AppCompat.Body1"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="1-770-736-8031 x56442" />
+                    android:layout_height="wrap_content" />
             </LinearLayout>
 
             <LinearLayout
@@ -72,14 +71,14 @@
                     android:layout_marginEnd="5dp"
                     android:layout_marginRight="5dp"
                     android:src="@drawable/ic_email_black_24dp"
-                    android:tint="@color/colorPrimary" />
+                    android:tint="@color/colorPrimary"
+                    android:contentDescription="@string/email" />
 
                 <TextView
                     android:id="@+id/email"
                     style="@style/TextAppearance.AppCompat.Body1"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="jhondoe@email.com" />
+                    android:layout_height="wrap_content" />
             </LinearLayout>
 
 
@@ -100,7 +99,7 @@
             style="@style/TextAppearance.AppCompat.Title"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Lista de publicaciones" />
+            android:text="@string/lista_de_publicaciones" />
 
         <android.support.v7.widget.RecyclerView
             android:id="@+id/recyclerViewPostsResults"

@@ -1,12 +1,12 @@
 package co.com.ceiba.mobile.pruebadeingreso.model;
 
-public class Users {
+public class User {
     private int id;
     private String name;
     private String phone;
     private String email;
 
-    public Users(int id, String name, String phone, String email) {
+    public User(int id, String name, String phone, String email) {
         this.id = id;
         this.name = name;
         this.phone = phone;
